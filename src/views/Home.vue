@@ -1,18 +1,35 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1><font-awesome-icon icon="globe-americas" />Estatística no mundo</h1>
+    <Global :item="global" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mapState } from 'vuex';
+import Global from '@/components/Global.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    Global,
+  },
+  created() {
+    this.$store.commit('getInfo');
+  },
+  computed: {
+    ...mapState({
+      global: 'global',
+    }),
   },
 };
 </script>
+
+<style scoped lang="scss">
+h1 {
+  margin: 40px 0 0;
+  svg {
+    margin-right: 8px;
+  }
+}
+</style>

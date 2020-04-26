@@ -1,0 +1,17 @@
+@import "@/sass/variables.scss";
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+@mixin desktopLarge {
+  @media (min-width: #{$desktop-large-width}) {
+    @content;
+  }
+}
